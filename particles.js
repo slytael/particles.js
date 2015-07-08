@@ -241,7 +241,17 @@ var pJS = function(tag_id, params){
   pJS.fn.particle = function(color, opacity, position){
 
     /* size */
-    this.radius = (pJS.particles.size.random ? Math.random() : 1) * pJS.particles.size.value;
+    var multiplier = 1;
+    if(pJS.particles.size.random){
+      multiplier = Math.random();
+      if(multiplier < pJS.particles.size.randomMinMultiplier){
+        multiplier = pJS.particles.size.randomMinMultiplier;
+      }
+    }
+    
+    this.radius = multiplier * pJS.particles.size.value;
+    
+    
     if(pJS.particles.size.anim.enable){
       this.size_status = false;
       this.vs = pJS.particles.size.anim.speed / 100;
