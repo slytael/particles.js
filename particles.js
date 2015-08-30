@@ -1249,7 +1249,7 @@ var pJS = function(tag_id, params){
   pJS.fn.vendors.destroypJS = function(){
     cancelAnimationFrame(pJS.fn.drawAnimFrame);
     canvas_el.remove();
-    pJSDom = null;
+    pJSDom = [];
   };
 
 
